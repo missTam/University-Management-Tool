@@ -5,7 +5,7 @@
       <configuration>
         <setting name="validation-enabled" value="true" />
         <datasource-mapping>
-          <factory-entry name="university-management-tool" value="d3f19fe4-fd70-4212-95bd-5928f2340404" />
+          <factory-entry name="university-management-tool" value="8fd1a0ba-1658-4ce5-b66e-7e69fbb7c255" />
         </datasource-mapping>
         <naming-strategy-map />
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml" />
