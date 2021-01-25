@@ -29,8 +29,6 @@ public class LectureDAOImpl implements LectureDAO {
                 .collect(Collectors.toSet());
     }
 
-    // ONLY WORKS WITH EAGER INITIALIZATION; LAZY DOES NOT WORK EVEN THOUGH I DONT CALL GET PROF. (JSP TRIES TO GET PROF)
-
     @Override
     public Set<Lecture> getAllLecturesWithProfessor() {
 

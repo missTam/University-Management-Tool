@@ -27,7 +27,7 @@ public class RoleDAOImpl implements RoleDAO {
 		try {
 			role = theQuery.getSingleResult();
 		} catch (Exception e) {
-			// LOG THIS
+			// log
 		}
 		
 		return role;

@@ -33,8 +33,6 @@ public class UserRegistrationServiceImpl implements UserRegistrationService {
         user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
         user.setEmail(userDTO.getEmail());
 
-        // IS THIS TIGHT COUPLING?; I HAVE bi-directional one to one relationship; NEED TO KEEP DATA CONSISTENT
-        // BOTH SIDES NEED TO KNOW ABOUT EACH OTHER
         user.setStudent(new Student(userDTO.getFirstname(), userDTO.getLastname(), user));
 
         // give user default role of "student" as only students can register, for now

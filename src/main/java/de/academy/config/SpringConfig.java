@@ -95,7 +95,6 @@ public class SpringConfig implements WebMvcConfigurer {
         return dataSource;
     }
 
-
     // a helper method to read environment property and convert to int
     private int getIntegerProperty(String property) {
         return Integer.parseInt(env.getProperty(property));

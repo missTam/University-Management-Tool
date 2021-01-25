@@ -36,8 +36,6 @@ public class StudentDAOImpl implements StudentDAO {
                         Student.class)
                 .setParameter("userID", user.getId())
                 .getSingleResult();
-
-        // LAZY LOADING EXCEPTION - cannot get lectures on student!!!
     }
 
     @Override
@@ -61,9 +59,6 @@ public class StudentDAOImpl implements StudentDAO {
 
         Lecture newLecture = session.get(Lecture.class, lectureId);
         Student student = session.get(Student.class, studentId);
-
-       /* List<Lecture> lectures = student.getLectures();
-        lectures.forEach(Lecture::getProfessor);*/
 
         student.addLecture(newLecture);
         session.merge(student);

@@ -42,9 +42,6 @@ public class DashboardRedirectAuthenticationSuccessHandler implements Authentica
                                         Authentication authentication
 	) throws IOException {
 
-        System.out.println("\n\nIn customAuthenticationSuccessHandler\n\n");
-        System.out.println("userName=" + authentication.getName());
-
 		HttpSession session = request.getSession();
         User authenticatedUser = loginService.findByUsername(authentication.getName());
 
@@ -88,20 +85,6 @@ public class DashboardRedirectAuthenticationSuccessHandler implements Authentica
 		}
 
 		throw new IllegalStateException();
-	}
-
-	// difference between this way of determining role and the "above way"? ?????????????????????????????????????
-	protected void determineUserInTheSession(HttpServletRequest request,
-											 User authenticatedUser) {
-
-		HttpSession session = request.getSession();
-
-		if (authenticatedUser.getRole().getName().equals("ROLE_STUDENT")) {
-			session.setAttribute("student", new StudentDTO());
-		} else {
-			session.setAttribute("professor", new ProfessorDTO());
-		}
-
 	}
 
 }

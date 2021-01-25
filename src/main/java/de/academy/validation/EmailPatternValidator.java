@@ -13,6 +13,7 @@ public class EmailPatternValidator implements ConstraintValidator<EmailPattern, 
 
     private Pattern pattern;
     private Matcher matcher;
+
     // no space, no special chars, no double dot, [sth][allow .][sth]@[sth].[sth]
     private static final String REGEX_EMAIL_PATTERN = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@"
             + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";

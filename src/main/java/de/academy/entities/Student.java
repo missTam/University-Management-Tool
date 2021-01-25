@@ -114,11 +114,6 @@ public class Student {
 
         lectures.removeIf(lecture -> lecture.getId() == lectureId);
 
-/*        lectures = lectures
-                .stream()
-                .filter(lecture -> lecture.getId() != lectureId)
-                .collect(Collectors.toSet());*/
-
     }
 
     public User getUser() {

@@ -136,13 +136,6 @@ public class Professor {
             lectures = new HashSet<>();
         }
 
-/*        Iterator<Lecture> iterator = lectures.iterator();
-        while(iterator.hasNext()) {
-            if(iterator.next().equals(lectureForRemoval)) {
-                iterator.remove();
-            }
-        }*/
-
         Set<Lecture> found = new HashSet<>();
         for(Lecture lecture : lectures) {
             if(lecture.equals(lectureForRemoval)) {

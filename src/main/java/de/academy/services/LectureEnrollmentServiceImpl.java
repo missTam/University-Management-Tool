@@ -29,7 +29,6 @@ public class LectureEnrollmentServiceImpl implements LectureEnrollmentService {
     public StudentDTO enrollStudentInLecture(long studentId, long lectureId) {
 
         Student updatedStudent = studentDAO.addLectureToStudent(studentId, lectureId);
-
         return updateStudentLecturesWithProfessorInformation(updatedStudent);
     }
 
@@ -38,7 +37,6 @@ public class LectureEnrollmentServiceImpl implements LectureEnrollmentService {
     public StudentDTO disenrollStudentFromLecture(long studentId, long lectureId) {
 
         Student updatedStudent = studentDAO.removeLectureFromStudent(studentId, lectureId);
-
         return updateStudentLecturesWithProfessorInformation(updatedStudent);
     }
 

@@ -37,9 +37,6 @@ public class LoginServiceImpl implements LoginService {
 		this.passwordEncoder = passwordEncoder;
 	}
 
-	// Where do I return VIEW? Should I overload findByUsername? Why do I need the UserDetails below?
-	// Security Config User Service? Is that a service?
-
 	@Override
 	@Transactional
 	public User findByUsername(String username) {
