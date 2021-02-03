@@ -24,8 +24,7 @@ import java.beans.PropertyVetoException;
 import java.util.Properties;
 import java.util.logging.Logger;
 
-/* SpringAppConfig  contains the configuration for the various beans needs
-for Hibernate DB access and other spring app functionality */
+/* SpringAppConfig  contains the configuration for the various beans */
 
 @Configuration
 // Add support for @Controller-annotated classes that use @RequestMapping to map incoming requests */
@@ -35,7 +34,7 @@ for Hibernate DB access and other spring app functionality */
 // Scan for components, recursively for inversion control and dependency injection
 @ComponentScan(basePackages = "de.academy")
 @PropertySource("classpath:persistence-mysql.properties")
-public class SpringConfig implements WebMvcConfigurer {
+public class WebConfig implements WebMvcConfigurer {
 
     // set up variable to hold the properties; will use to read configs for JDBC, Hibernate and connection pooling
     @Autowired
@@ -56,7 +55,7 @@ public class SpringConfig implements WebMvcConfigurer {
         return viewResolver;
     }
 
-    // Define Datasource bean; use env to get data; set up configs for JDBC and connection pooling
+    // Define Datasource bean; use env to get data;
     @Bean
     public DataSource getDataSource() {
 
@@ -95,7 +94,7 @@ public class SpringConfig implements WebMvcConfigurer {
         return dataSource;
     }
 
-    // a helper method to read environment property and convert to int
+    // read environment property and convert to int
     private int getIntegerProperty(String property) {
         return Integer.parseInt(env.getProperty(property));
     }

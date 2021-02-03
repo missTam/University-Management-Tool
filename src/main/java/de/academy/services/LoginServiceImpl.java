@@ -1,8 +1,5 @@
 package de.academy.services;
 
-import de.academy.dao.ProfessorDAO;
-import de.academy.dao.RoleDAO;
-import de.academy.dao.StudentDAO;
 import de.academy.dao.UserDAO;
 import de.academy.entities.Role;
 import de.academy.entities.User;
@@ -10,7 +7,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,20 +17,8 @@ public class LoginServiceImpl implements LoginService {
 
 	private final UserDAO userDAO;
 
-	private final RoleDAO roleDAO;
-
-	private final StudentDAO studentDAO;
-
-	private final ProfessorDAO professorDAO;
-
-	private final PasswordEncoder passwordEncoder;
-
-	public LoginServiceImpl(UserDAO userDAO, RoleDAO roleDAO, StudentDAO studentDAO, ProfessorDAO professorDAO, PasswordEncoder passwordEncoder) {
+	public LoginServiceImpl(UserDAO userDAO) {
 		this.userDAO = userDAO;
-		this.roleDAO = roleDAO;
-		this.studentDAO = studentDAO;
-		this.professorDAO = professorDAO;
-		this.passwordEncoder = passwordEncoder;
 	}
 
 	@Override

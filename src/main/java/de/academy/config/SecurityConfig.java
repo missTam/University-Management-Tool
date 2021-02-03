@@ -55,7 +55,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     // We assign the UserService and PasswordEncoder to the DaoAuthenticationProvider
-    // custom user Service can be passed in because it extends UserDetailsService & overrides required method
+    // custom impl of UserDetailsService is passed in (extends UserDetailsService & overrides required method)
     @Bean
     public DaoAuthenticationProvider authenticationProvider(PasswordEncoder passwordEncoder, UserDetailsService userService) {
         DaoAuthenticationProvider auth = new DaoAuthenticationProvider();

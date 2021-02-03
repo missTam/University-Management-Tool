@@ -33,7 +33,6 @@ public class StudentServiceImpl implements StudentService {
     @Transactional
     public StudentDTO getStudentUnderGivenUserAccount(User authenticatedUser) {
 
-        System.out.println("\n (1) FETCHING STUDENT FOR USER ACCOUNT \n");
         Student student = studentDAO.getStudentByUser(authenticatedUser);
         Set<Lecture> lectures = lectureDAO.getAllLecturesForStudent(student);
 

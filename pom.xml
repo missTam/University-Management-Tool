@@ -12,8 +12,7 @@
     <name>university-management-tool</name>
 
     <properties>
-        <maven.compiler.target>11</maven.compiler.target>
-        <maven.compiler.source>11</maven.compiler.source>
+        <java.version>11</java.version>
         <springframework.version>5.2.8.RELEASE</springframework.version>
         <springsecurity.version>5.4.0</springsecurity.version>
         <hibernate.version>5.4.25.Final</hibernate.version>
@@ -91,6 +90,8 @@
         </dependency>
 
         <!-- Servlet API 4.0 -->
+        <!-- contains frontend (dispatcher) servlet-->
+        <!-- scope = dependency will be provided by the container, no need to package it in war -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
@@ -171,8 +172,39 @@
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <release>${java.version}</release>
+                    <target>${java.version}</target>
+                    <source>${java.version}</source>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.3.0</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+
+            <!-- To embed a Tomcat server
+            specifying the container (Tomcat 9) for deploying project
+            deploy and start tomcat with one click
+            go to plugins -> cargo -> cargo:run to run Tomcat
+            application context in the url is the war file name -->
+            <plugin>
+                <groupId>org.codehaus.cargo</groupId>
+                <artifactId>cargo-maven2-plugin</artifactId>
+                <version>1.6.7</version>
+                <configuration>
+                    <container>
+                        <containerId>tomcat9x</containerId>
+                        <type>embedded</type>
+                    </container>
+                </configuration>
             </plugin>
 
         </plugins>
